@@ -1,7 +1,7 @@
-
 public class Board {
     RandomNum rand = new RandomNum();
-
+    int x = 0;
+    int y = 0;
     private int xAxis = 8;
     private int yAxis = 8;
     private Character startPoint = 'S';
@@ -12,10 +12,9 @@ public class Board {
     private char[][] area = new char[xAxis][yAxis];
     private char[][] walls = new char[xAxis][yAxis];
     private String[] match;
-// area dizisine oyun tahtası ataması
+    // area dizisine oyun tahtası ataması
     public Board() {
         int wallsCount = rand.genereteRand(6, 9); //duvar sayısının random belirlenmesi
-
         for (int i = 0; i < wallsCount; ++i) {// walls dizisine rastgele duvarların ataması
             walls[rand.genereteRand(0, 7)][rand.genereteRand(0, 7)] = wall;
         }
@@ -40,13 +39,9 @@ public class Board {
             }
         }
         System.out.println();
-
-
         pathFinding();
         matchedWalls();
     }
-    int x = 0;
-    int y = 0;
     public void pathFinding() {
         while (area[x][y] != area[7][7]) {// başlangıçtan bitişe gidiş sorgusu
             if (area[x][y] != area[7][y]) { // en alt satırdayken daha alta inmesini önleme
@@ -56,12 +51,12 @@ public class Board {
                 } else if (area[x][y + 1] != wall) { //sağ konumda duvar sorgusu
                     area[x][y + 1] = path;
                     y++;
-                }
-                else if (area[x][y - 1] != wall) { //sol konumda duvar sorgusu
+                } else if (area[x][y - 1] != wall) { //sol konumda duvar sorgusu
                     area[x][y - 1] = path;
                     y++;
                 }
-            } if (area[x][y] != area[x][7]) { // en sağ sütundayken sağa gitmesini önleme
+            }
+            if (area[x][y] != area[x][7]) { // en sağ sütundayken sağa gitmesini önleme
                 if (area[x][y + 1] != wall) { //sağ konumda duvar sorgusu
                     area[x][y + 1] = path;
                     y++;
@@ -72,20 +67,19 @@ public class Board {
             }
         }
     }
-
-    public void matchedWalls(){
+    public void matchedWalls() {
         System.out.print("Karşılaşılan duvarlar: ");
         for (int i = 0; i < xAxis; ++i) {
             for (int j = 0; j < yAxis; ++j) {
-                if(area[i][j] == wall){
-                    if      (area[i - 1][j] == path) System.out.print((j+1) + "," + (i+1) + " ");
-                    else if (area[i ][j - 1] == path) System.out.print((j+1) + "," + (i+1) + " ");
-                    else if (area[i + 1][j] == path) System.out.print((j+1) + "," + (i+1) + " ");
-                    else if (area[i][j + 1] == path) System.out.print((j+1) + "," + (i+1) + " ");
-                    else if (area[i + 1][j + 1] == path) System.out.print((j+1) + "," + (i+1) + " ");
-                    else if (area[i - 1][j - 1] == path) System.out.print((j+1) + "," + (i+1) + " ");
-                    else if (area[i + 1][j - 1] == path) System.out.print((j+1) + "," + (i+1) + " ");
-                    else if (area[i - 1][j + 1] == path) System.out.print((j+1) + "," + (i+1) + " ");
+                if (area[i][j] == wall) {
+                    if      (area[i - 1][j] == path) System.out.print((j + 1) + "," + (i + 1) + " ");
+                    else if (area[i][j - 1] == path) System.out.print((j + 1) + "," + (i + 1) + " ");
+                    else if (area[i + 1][j] == path) System.out.print((j + 1) + "," + (i + 1) + " ");
+                    else if (area[i][j + 1] == path) System.out.print((j + 1) + "," + (i + 1) + " ");
+                    else if (area[i + 1][j + 1] == path) System.out.print((j + 1) + "," + (i + 1) + " ");
+                    else if (area[i - 1][j - 1] == path) System.out.print((j + 1) + "," + (i + 1) + " ");
+                    else if (area[i + 1][j - 1] == path) System.out.print((j + 1) + "," + (i + 1) + " ");
+                    else if (area[i - 1][j + 1] == path) System.out.print((j + 1) + "," + (i + 1) + " ");
                 }
             }
         }
