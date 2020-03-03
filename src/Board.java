@@ -72,6 +72,7 @@ public class Board {
                 }
             }
         }
+        System.out.println();
     }
     public void matchedWalls() {
         System.out.print("Karşılaşılan duvarlar: ");
