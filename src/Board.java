@@ -7,8 +7,8 @@ public class Board {
     private Character startPoint = 'S';
     private Character endPoint = 'E';
     private Character wall = '⛝';
-    private Character square = '■';
-    private Character path = '□';
+    private Character square = '□';
+    private Character path = '■';
     private char[][] area = new char[xAxis][yAxis];
     private char[][] walls = new char[xAxis][yAxis];
     private String[] match;

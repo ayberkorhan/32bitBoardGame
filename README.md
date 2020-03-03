@@ -1,6 +1,7 @@
 # BoardGame
 Java dilinde yazdığım satranç tahtası üzerinde yol bulmaya yönelik basit bir oyun
-
+## Örnek Çıktı
+![ornek cikti](https://i.imgur.com/bYpn2O9.png)
 ## Kurallar
 - Oyun beyaz bir pulun oyun tahtası üzerinde bir uçtan ( A1 ) diğer uça ( H8 ) gitmesini amaçlamaktadır. 
 
