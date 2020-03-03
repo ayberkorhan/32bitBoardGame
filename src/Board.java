@@ -43,26 +43,32 @@ public class Board {
         matchedWalls();
     }
     public void pathFinding() {
+        System.out.print("Takip edilen adımlar: 1,1  ");
         while (area[x][y] != area[7][7]) {// başlangıçtan bitişe gidiş sorgusu
             if (area[x][y] != area[7][y]) { // en alt satırdayken daha alta inmesini önleme
                 if (area[x + 1][y] != wall) { //alt konumda duvar sorgusu
                     area[x + 1][y] = path;
                     x++;
+                    System.out.print((y+1) + "," + (x+1) + "  ");
                 } else if (area[x][y + 1] != wall) { //sağ konumda duvar sorgusu
                     area[x][y + 1] = path;
                     y++;
+                    System.out.print((y+1) + "," + (x+1) + "  ");
                 } else if (area[x][y - 1] != wall) { //sol konumda duvar sorgusu
                     area[x][y - 1] = path;
                     y++;
+                    System.out.print((y+1) + "," + (x+1) + "  ");
                 }
             }
             if (area[x][y] != area[x][7]) { // en sağ sütundayken sağa gitmesini önleme
                 if (area[x][y + 1] != wall) { //sağ konumda duvar sorgusu
                     area[x][y + 1] = path;
                     y++;
+                    System.out.print((y+1) + "," + (x+1) + "  ");
                 } else if (area[x + 1][y] != wall) { //alt konumda duvar sorgusu
                     area[x + 1][y] = path;
                     x++;
+                    System.out.print((y+1) + "," + (x+1) + "  ");
                 }
             }
         }
